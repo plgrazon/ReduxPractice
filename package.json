@@ -1,0 +1,37 @@
+{
+  "name": "ReduxPractice",
+  "version": "1.0.0",
+  "description": "This repo will contain different redux practice sets from basic  having one reducer to multiple ones and connecting redux and react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plgrazon/ReduxPractice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plgrazon/ReduxPractice/issues"
+  },
+  "homepage": "https://github.com/plgrazon/ReduxPractice#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
