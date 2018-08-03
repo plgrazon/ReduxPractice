@@ -3,8 +3,7 @@ import { createStore } from 'redux';
 const reducer = function(state, action) {
   if (action.type === 'INCREASE') {
     return state + 1;
-  }
-  if (action.type === 'DECREASE') {
+  } else if (action.type === 'DECREASE') {
     return state - 1;
   }
   return state;
