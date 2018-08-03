@@ -4,7 +4,7 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'static');
 
 module.exports = {
-  entry: path.resolve(SRC_DIR, 'index.jsx'),
+  entry: path.resolve(SRC_DIR, '1-basic.js'),
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
@@ -33,5 +33,8 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './static'),
   }
 }
