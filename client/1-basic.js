@@ -1,15 +1,31 @@
 import { createStore } from 'redux';
 
-const reducer = (state, action) => {
-  if (action.type === 'INCREASE') {
-    return state + 1;
-  } else if (action.type === 'DECREASE') {
-    return state - 1;
+const initialState = {
+  result: 0,
+  lastValues: [],
+  name: 'Paolo'
+}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'INCREASE':
+      state = {
+        ...state,
+        result: state.result + action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      break;
+    case 'DECREASE':
+      state = {
+        ...state,
+        result: state.result - action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      break;
   }
   return state;
 }
 
-const store = createStore(reducer, 0);
+const store = createStore(reducer);
 
 store.subscribe(() => {
   console.log('store changed', store.getState());

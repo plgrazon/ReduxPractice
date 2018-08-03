@@ -1,19 +1,23 @@
 import { combineReducers, createStore } from 'redux';
 
 const userReducer = (state = {}, action) => {
+  let newState = Object.assign({}, state);
   switch(action.type) {
-    case 'CHANGE_USER': {
-      state.name = action.payload;
+    case 'CHANGE_USER':
+      state = {...state, name: action.payload}
+      // es5 version:
+      // state = Object.assign({}, state, {name:action.payload});
       break;
-    }
-    case 'CHANGE_AGE': {
-      state.age = action.payload;
+    case 'CHANGE_AGE':
+      state = {...state, age: action.payload}
+      // es5 version:
+      // state = Object.assign({}, state, {age:action.payload});
       break;
-    }
-    case 'CHANGE_LOCATION': {
-      state.location = action.payload;
+    case 'CHANGE_LOCATION':
+      state = {...state, location: action.payload}
+      // es5 version:
+      // state = Object.assign({}, state, {location:action.payload});
       break;
-    }
   }
   return state;
 }
@@ -27,8 +31,7 @@ const reducers = combineReducers({
   tweets: tweetsReducer
 });
 
-const store = createStore(reducers, {
-});
+const store = createStore(reducers);
 
 store.subscribe(() => {
   console.log('store changed', store.getState());

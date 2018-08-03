@@ -4,7 +4,7 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'static');
 
 module.exports = {
-  entry: path.resolve(SRC_DIR, '2-multipleReducers.js'),
+  entry: path.resolve(SRC_DIR, '1-basic.js'),
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
@@ -16,7 +16,6 @@ module.exports = {
         exclude: [/node_modules/],
         use: [{
           loader: 'babel-loader',
-          options: { presets: ['env', 'react'] }
         }],
       },
       {
@@ -36,6 +35,6 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, './static'),
-    open: true,
+    open: true
   }
 }
