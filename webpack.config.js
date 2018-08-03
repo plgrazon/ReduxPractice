@@ -36,5 +36,6 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, './static'),
+    open: true,
   }
 }
