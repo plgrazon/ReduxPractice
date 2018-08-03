@@ -6,7 +6,7 @@ having one reducer to multiple ones and connecting redux and react.
 ### Starting the tutorial:
 
 This tutorial has a live reload capability using webpack-dev-server.
-To start the tutorial that you want change the entry file.
+To start the tutorial that you want, change the entry file.
 
 Change:
 ```
