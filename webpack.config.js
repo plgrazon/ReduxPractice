@@ -4,7 +4,7 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'static');
 
 module.exports = {
-  entry: path.resolve(SRC_DIR, '2-multipleReducers.js'),
+  entry: path.resolve(SRC_DIR, '3-middleware.js'),
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
