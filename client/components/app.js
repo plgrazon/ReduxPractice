@@ -3,32 +3,39 @@ import React from 'react';
 import User from './user';
 import Main from './main';
 
+import { connect } from 'react-redux';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      username: 'John'
-    };
-
-    this.changeUsername = this.changeUsername.bind(this);
-  }
-
-
-  changeUsername(name) {
-    this.setState({
-      username: name
-    });
   }
 
   render() {
     return(
       <div className="container">
-        <Main changeUsername={this.changeUsername}/>
-        <User username={this.state.username}/>
+        <Main />
+        <User username={this.props.user.name}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    tweets: state.tweets
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch({
+        type: 'CHANGE_USER',
+        payload: name
+      })
+    }
+  };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 class Main extends React.Component {
-  constructor({changeUsername}) {
+  constructor(props) {
     super();
   }
 
@@ -22,8 +24,9 @@ class Main extends React.Component {
           <div className="col-xs-12">
             <button
               className="btn btn-primary"
-              onClick={() => this.props.changeUsername(this.giveName())}
+              onClick={() => this.props.setName(this.giveName())}
             >
+            Change the Username
             </button>
           </div>
         </div>
@@ -32,4 +35,22 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    tweets: state.tweets
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch({
+        type: 'CHANGE_USER',
+        payload: name
+      })
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

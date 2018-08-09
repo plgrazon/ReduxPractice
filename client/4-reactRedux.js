@@ -2,12 +2,14 @@ import React from 'react';
 import {render} from 'react-dom';
 
 import { applyMiddleware, combineReducers, createStore } from 'redux';
+
 import logger from 'redux-logger';
+import { Provider } from 'react-redux';
 
 import App from './components/app.js';
 
 const initialState = {
-  name: null,
+  name: 'Ceasar',
   age: null,
   location: null
 }
@@ -90,15 +92,20 @@ store.subscribe(() => {
   // console.log('store changed', store.getState());
 });
 
-store.dispatch({type: 'CHANGE_USER', payload: 'Paolo'});
-store.dispatch({type: 'CHANGE_AGE', payload: 24});
-store.dispatch({type: 'CHANGE_LOCATION', payload: 'Los Angeles'});
+// store.dispatch({type: 'CHANGE_USER', payload: 'John'});
+// store.dispatch({type: 'CHANGE_AGE', payload: 24});
+// store.dispatch({type: 'CHANGE_LOCATION', payload: 'Los Angeles'});
+//
+// store.dispatch({type: 'ERROR'});
+//
+// store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'Hello World!'}});
+// store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'I love Redux!'}});
+// store.dispatch({type: 'EDIT_TWEET', payload: {index: 0, text: 'Bye World'}});
+// store.dispatch({type: 'DELETE_TWEET', payload: {index: 0, text: null}});
 
-store.dispatch({type: 'ERROR'});
-
-store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'Hello World!'}});
-store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'I love Redux!'}});
-store.dispatch({type: 'EDIT_TWEET', payload: {index: 0, text: 'Bye World'}});
-store.dispatch({type: 'DELETE_TWEET', payload: {index: 0, text: null}});
-
-render(<App />, document.getElementById('app'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);
