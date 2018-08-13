@@ -1,7 +1,7 @@
 import React from 'react';
 
-import User from './user';
-import Main from './main';
+import User from '../components/user';
+import Main from '../components/main';
 
 import { connect } from 'react-redux';
 

@@ -6,7 +6,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
-import App from './components/app.js';
+import App from './container/app.js';
 
 const initialState = {
   name: 'Ceasar',
