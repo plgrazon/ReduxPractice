@@ -3,10 +3,17 @@ import {render} from 'react-dom';
 
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 
+import store from './store.js';
+
+/*****************************************************
+This has been exported to the store folder:
+
 import logger from 'redux-logger';
+*****************************************************/
+
 import { Provider } from 'react-redux';
 
-import App from './container/app.js';
+import App from './containers/app.js';
 
 const initialState = {
   name: 'Ceasar',
@@ -70,12 +77,25 @@ const reducers = combineReducers({
   tweets: tweetsReducer
 });
 
-// Basic logger but the logger from Redux is better
-// const logger = (store) => (next) => (action) => {
-//   console.log('action fired', action);
-//   next(action);
-// }
+render(
+  <Provider store={store}>
+  <App />
+  </Provider>,
+  document.getElementById('app')
+);
 
+/******************************************************
+/** Basic logger but the logger from Redux is better **
+/******************************************************
+const logger = (store) => (next) => (action) => {
+  console.log('action fired', action);
+  next(action);
+}
+/*****************************************************/
+
+/******************************************************
+/**This has been exported to the store folder: ********
+/******************************************************
 const error = (store) => (next) => (action) => {
   try {
     next(action);
@@ -83,29 +103,30 @@ const error = (store) => (next) => (action) => {
     console.log('error ', error);
   }
 }
-
 const middleware = applyMiddleware(error, logger);
 
 const store = createStore(reducers, middleware);
+/*****************************************************/
 
+/******************************************************
+/** This is handled by the logger: ********************
+/******************************************************
 store.subscribe(() => {
-  // console.log('store changed', store.getState());
+  console.log('store changed', store.getState());
 });
+/****************************************************/
 
-// store.dispatch({type: 'CHANGE_USER', payload: 'John'});
-// store.dispatch({type: 'CHANGE_AGE', payload: 24});
-// store.dispatch({type: 'CHANGE_LOCATION', payload: 'Los Angeles'});
-//
-// store.dispatch({type: 'ERROR'});
-//
-// store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'Hello World!'}});
-// store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'I love Redux!'}});
-// store.dispatch({type: 'EDIT_TWEET', payload: {index: 0, text: 'Bye World'}});
-// store.dispatch({type: 'DELETE_TWEET', payload: {index: 0, text: null}});
+/****************************************************/
+/** Dispatch actions: ********************************
+/*****************************************************
+store.dispatch({type: 'CHANGE_USER', payload: 'John'});
+store.dispatch({type: 'CHANGE_AGE', payload: 24});
+store.dispatch({type: 'CHANGE_LOCATION', payload: 'Los Angeles'});
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
-);
+store.dispatch({type: 'ERROR'});
+
+store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'Hello World!'}});
+store.dispatch({type: 'ADD_TWEET', payload: {index: null, text: 'I love Redux!'}});
+store.dispatch({type: 'EDIT_TWEET', payload: {index: 0, text: 'Bye World'}});
+store.dispatch({type: 'DELETE_TWEET', payload: {index: 0, text: null}});\
+/****************************************************/

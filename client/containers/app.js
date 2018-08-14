@@ -27,15 +27,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setName: (name) => {
-      dispatch({
-        type: 'CHANGE_USER',
-        payload: name
-      })
-    }
-  };
-}
-
 export default connect(mapStateToProps)(App);

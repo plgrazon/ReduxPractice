@@ -2,6 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import { changeUser } from '../actions/userActions.js';
+
 const Main = (props) => {
   const giveName = () => {
     const names = ['Mary', 'John', 'Peter', 'Joseph'];
@@ -39,10 +41,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setName: (name) => {
-      dispatch({
-        type: 'CHANGE_USER',
-        payload: name
-      })
+      dispatch(changeUser(name))
     }
   };
 }

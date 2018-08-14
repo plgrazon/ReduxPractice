@@ -4,7 +4,7 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'static');
 
 module.exports = {
-  entry: path.resolve(SRC_DIR, '4-reactRedux.js'),
+  entry: path.resolve(SRC_DIR, '5-reduxAppStructure.js'),
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
